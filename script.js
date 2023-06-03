@@ -53,7 +53,7 @@ function displayQuizQuestions() {
       <p>${question.question}</p>
       <ul>
         ${question.options.map(option => `<li>${option}</li>`).join("")}
-     </ul>
+      </ul>
     `;
     quizContainer.appendChild(questionElement);
   });
