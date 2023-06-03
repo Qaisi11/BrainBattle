@@ -9,7 +9,46 @@ const quizData = [
     options: ["Leonardo da Vinci", "Pablo Picasso", "Vincent van Gogh", "Michelangelo"],
     correctAnswer: "Leonardo da Vinci"
   },
-  // Add more questions here...
+  {
+    question: "What is the capital of FRANCE?",
+    options: ["Paris", "London", "Berlin", "Rome"],
+    correctAnswer: "Paris"
+  },
+  {
+    question: "Who painted the MONA LISA?",
+    options: ["Leonardo da Vinci", "Pablo Picasso", "Vincent van Gogh", "Michelangelo"],
+    correctAnswer: "Leonardo da Vinci"
+  },
+  {
+    question: "What is the capital of Canada?",
+    options: ["Toronto", "Vancouver", "Montreal", "Ottawa"],
+    correctAnswer: "Ottawa"
+  },
+  {
+    question: "What is the largest planet in our solar system?",
+    options: ["Mercury", "Venus", "Earth", "Jupiter"],
+    correctAnswer: "Jupiter"
+  },
+  {
+    question: "What is the largest organ in the human body?",
+    options: ["Liver", "Heart", "Lungs", "Skin"],
+    correctAnswer: "Skin"
+  },
+  {
+    question: "Who invented the telephone?",
+    options: ["Thomas Edison", "Alexander Graham Bell", "Nikola Tesla", "Benjamin Franklin"],
+    correctAnswer: "Alexander Graham Bell"
+  },
+  {
+    question: "What is the national animal of Canada?",
+    options: ["Bald eagle", "Beaver", "Grizzly bear", "Moose"],
+    correctAnswer: "Beaver"
+  },
+  {
+    question: "What is the tallest mammal in the world?",
+    options: ["Giraffe", "Elephant", "Hippopotamus", "Rhino"],
+    correctAnswer: "Giraffe"
+  }
 ];
 
 const quizContainer = document.getElementById("quiz-container");
