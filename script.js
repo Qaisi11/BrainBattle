@@ -1,21 +1,11 @@
 const quizData = [
   {
-    question: "What is the capital of FRANCE?",
+    question: "What is the capital of France?",
     options: ["Paris", "London", "Berlin", "Rome"],
     correctAnswer: "Paris"
   },
   {
-    question: "Who painted the MONA LISA?",
-    options: ["Leonardo da Vinci", "Pablo Picasso", "Vincent van Gogh", "Michelangelo"],
-    correctAnswer: "Leonardo da Vinci"
-  },
-  {
-    question: "What is the capital of FRANCE?",
-    options: ["Paris", "London", "Berlin", "Rome"],
-    correctAnswer: "Paris"
-  },
-  {
-    question: "Who painted the MONA LISA?",
+    question: "Who painted the Mona Lisa?",
     options: ["Leonardo da Vinci", "Pablo Picasso", "Vincent van Gogh", "Michelangelo"],
     correctAnswer: "Leonardo da Vinci"
   },
@@ -51,23 +41,50 @@ const quizData = [
   }
 ];
 
+const quizData2 = [
+  {
+    question: "What is the capital of Japan?",
+    options: ["Tokyo", "Seoul", "Beijing", "Bangkok"],
+    correctAnswer: "Tokyo"
+  },
+  {
+    question: "Who wrote the play 'Romeo and Juliet'?",
+    options: ["William Shakespeare", "Jane Austen", "Charles Dickens", "Mark Twain"],
+    correctAnswer: "William Shakespeare"
+  },
+  // Add more questions for Quiz 2...
+];
+
 const quizContainer = document.getElementById("quiz-container");
 const quizFeedback = document.getElementById("quiz-feedback");
 const submitButton = document.getElementById("submit-button");
 
 function displayQuizQuestions() {
   quizData.forEach((question, index) => {
-    const questionElement = document.createElement("div");
-    questionElement.classList.add("question");
-    questionElement.innerHTML = `
-      <h3>Question ${index + 1}:</h3>
-      <p>${question.question}</p>
-      <ul>
-        ${question.options.map(option => `<li>${option}</li>`).join("")}
-     </ul>
-    `;
+    const questionElement = createQuestionElement(question, index);
     quizContainer.appendChild(questionElement);
   });
+}
+
+function displayQuizQuestions2() {
+  quizData2.forEach((question, index) => {
+    const questionIndex = index + quizData.length;
+    const questionElement = createQuestionElement(question, questionIndex);
+    quizContainer.appendChild(questionElement);
+  });
+}
+
+function createQuestionElement(question, index) {
+  const questionElement = document.createElement("div");
+  questionElement.classList.add("question");
+  questionElement.innerHTML = `
+    <h3>Question ${index + 1}:</h3>
+    <p>${question.question}</p>
+    <ul>
+      ${question.options.map(option => `<li>${option}</li>`).join("")}
+   </ul>
+  `;
+  return questionElement;
 }
 
 function validateAnswers() {
@@ -75,42 +92,70 @@ function validateAnswers() {
   const correctAnswers = [];
   const questions = document.querySelectorAll(".question");
   let score = 0;
-  
+
   questions.forEach((question, index) => {
     const selectedOption = question.querySelector("li.selected");
     if (selectedOption) {
       userAnswers.push(selectedOption.textContent);
-      correctAnswers.push(quizData[index].correctAnswer);
-      if (selectedOption.textContent === quizData[index].correctAnswer) {
-        score++;
-        question.classList.add("correct");
+      if (index < quizData.length) {
+        correctAnswers.push(quizData[index].correctAnswer);
+        if (selectedOption.textContent === quizData[index].correctAnswer) {
+          score++;
+          question.classList.add("correct");
+        } else {
+          question.classList.add("incorrect");
+        }
       } else {
-        question.classList.add("incorrect");
+        const quiz2Index = index - quizData.length;
+        correctAnswers.push(quizData2[quiz2Index].correctAnswer);
+        if (selectedOption.textContent === quizData2[quiz2Index].correctAnswer) {
+          score++;
+          question.classList.add("correct");
+        } else {
+          question.classList.add("incorrect");
+        }
       }
     } else {
       userAnswers.push("");
-      correctAnswers.push(quizData[index].correctAnswer);
+      if (index < quizData.length) {
+        correctAnswers.push(quizData[index].correctAnswer);
+      } else {
+        const quiz2Index = index - quizData.length;
+        correctAnswers.push(quizData2[quiz2Index].correctAnswer);
+      }
     }
   });
-  
+
   const feedback = `
-    <p>You got ${score} out of ${quizData.length} questions correct!</p>
+    <p>You got ${score} out of ${quizData.length + quizData2.length} questions correct!</p>
     <ul>
       ${userAnswers.map((answer, index) => {
         if (answer === correctAnswers[index]) {
-          return `<li class="correct">${quizData[index].question} - ${correctAnswers[index]}</li>`;
+          if (index < quizData.length) {
+            return `<li class="correct">${quizData[index].question} - ${correctAnswers[index]}</li>`;
+          } else {
+            const quiz2Index = index - quizData.length;
+            return `<li class="correct">${quizData2[quiz2Index].question} - ${correctAnswers[index]}</li>`;
+          }
         } else {
-          return `<li class="incorrect">${quizData[index].question} - ${correctAnswers[index]}</li>`;
+          if (index < quizData.length) {
+            return `<li class="incorrect">${quizData[index].question} - ${correctAnswers[index]}</li>`;
+          } else {
+            const quiz2Index = index - quizData.length;
+            return `<li class="incorrect">${quizData2[quiz2Index].question} - ${correctAnswers[index]}</li>`;
+          }
         }
       }).join("")}
     </ul>
   `;
-  
+
   quizFeedback.innerHTML = feedback;
 }
 
 displayQuizQuestions();
+displayQuizQuestions2();
 submitButton.addEventListener("click", validateAnswers);
+
 const answerOptions = document.querySelectorAll(".question li");
 answerOptions.forEach(option => {
   option.addEventListener("click", () => {
