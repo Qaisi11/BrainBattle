@@ -2,7 +2,10 @@ body {
   background-image: url('https://images.unsplash.com/photo-1464078546784-4bfb496cfcef');
   background-size: cover;
   background-position: center;
-  font-family: Arial, sans-serif;
+  font-family: "Arial", sans-serif;
+  color: white;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
@@ -18,7 +21,6 @@ body {
 
 header {
   background-color: rgba(0, 0, 0, 0.8);
-  color: #fff;
   padding: 20px;
 }
 
@@ -44,25 +46,25 @@ main {
 
 footer {
   background-color: rgba(0, 0, 0, 0.8);
-  color: #fff;
   padding: 10px;
   text-align: center;
 }
 
-#quiz-section {
-  margin: 20px;
-  padding: 20px;
+#dashboard {
   background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin: 20px;
 }
 
-.question {
-  margin-bottom: 20px;
+#quizzes-container,
+#quiz-history-container {
+  margin-top: 20px;
+}
+
+.quiz-item {
   background-color: #fff;
-  border: 1px solid #ccc;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0.
+  border.
 }
