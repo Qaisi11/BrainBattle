@@ -1,110 +1,70 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <style>
-    body {
-      font-family: "Arial", sans-serif;
-      color: white;
-      margin: 0;
-      padding: 0;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%239C92AC' fill-opacity='0.25' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"), linear-gradient(to right top, #343a40, #2b2c31, #211f22, #151314, #000000);}
+body {
+  background-image: url('https://images.unsplash.com/photo-1464078546784-4bfb496cfcef');
+  background-size: cover;
+  background-position: center;
+  font-family: "Arial", sans-serif;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
 
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-      background-color: rgba(255, 193, 208, 0.9);
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-      text-align: center;
-    }
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(255, 193, 208, 0.9);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
 
-    header {
-      background-color: rgba(0, 0, 0, 0.8);
-      padding: 20px;
-    }
+header {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+}
 
-    nav ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-    }
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
 
-    nav ul li {
-      display: inline-block;
-      margin-right: 10px;
-    }
+nav ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
 
-    nav ul li a {
-      color: #fff;
-      text-decoration: none;
-    }
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
 
-    main {
-      padding: 20px;
-    }
+main {
+  padding: 20px;
+}
 
-    footer {
-      background-color: rgba(0, 0, 0, 0.8);
-      padding: 10px;
-      text-align: center;
-    }
+footer {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  text-align: center;
+}
 
-    #dashboard {
-      background-color: rgba(255, 255, 255, 0.9);
-      padding: 20px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-      margin: 20px;
-    }
+#dashboard {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin: 20px;
+}
 
-    #quizzes-container,
-    #quiz-history-container {
-      margin-top: 20px;
-    }
+#quizzes-container,
+#quiz-history-container {
+  margin-top: 20px;
+}
 
-    .quiz-item {
-      background-color: #fff;
-      border: 1px solid #ccc;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <header>
-      <nav>
-      <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="quiz1.html">Quiz 1</a></li>
-      <li><a href="quiz2.html">Quiz 2</a></li>
-      <li><a href="create.html">Create A Quiz For Yourself</a></li>
-      <li><a href="dashboard.html">Dashboard</a></li>
-    </ul>
-      </nav>
-    </header>
-    <main>
-      <h1>Welcome to the Website</h1>
-      <div id="dashboard">
-        <h2>Dashboard</h2>
-        <div id="quizzes-container">
-          <div class="quiz-item">
-            <h3>Quiz 1</h3>
-            <p>Description of Quiz 1</p>
-            <button>Start Quiz</button>
-          </div>
-          <div class="quiz-item">
-            <h3>Quiz 2</h3>
-            <p>Description of Quiz 2</p>
-            <button>Start Quiz</button>
-          </div>
-        </div>
-      </div>
-    </main>
-    <footer>
-      <p>&copy; My Website, All rights reserved. <p>
-    </footer>
-  </div>
-</body>
-</html>
+.quiz-item {
+  background-color: #fff;
+  border.
+}

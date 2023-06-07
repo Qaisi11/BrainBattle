@@ -1,82 +1,123 @@
-const startButton = document.getElementById('start-btn')
-const nextButton = document.getElementById('next-btn')
-const questionContainerElement = document.getElementById('question-container')
-const questionElement = document.getElementById('question')
-const answerButtonsElement = document.getElementById('answer-buttons')
+const quizContainer = document.getElementById("quiz-container");
+const quizFeedback = document.getElementById("quiz-feedback");
+const submitButton = document.getElementById("submit-button");
 
-let shuffledQuestions, currentQuestionIndex
-
-startButton.addEventListener('click', startGame)
-nextButton.addEventListener('click', () => {
-  currentQuestionIndex++
-  setNextQuestion()
-})
-
-function startGame() {
-  startButton.classList.add('hide')
-  shuffledQuestions = questions.sort(() => Math.random() - .5)
-  currentQuestionIndex = 0
-  questionContainerElement.classList.remove('hide')
-  setNextQuestion()
+// Function to display quiz questions for Quiz 1
+function displayQuizQuestions() {
+  quizData.forEach((question, index) => {
+    const questionElement = createQuestionElement(question, index);
+    quizContainer.appendChild(questionElement);
+  });
 }
 
-function setNextQuestion() {
-  resetState()
-  showQuestion(shuffledQuestions[currentQuestionIndex])
+// Function to display quiz questions for Quiz 2
+function displayQuizQuestions2() {
+  quizData2.forEach((question, index) => {
+    const questionIndex = index + quizData.length;
+    const questionElement = createQuestionElement(question, questionIndex);
+    quizContainer.appendChild(questionElement);
+  });
 }
 
-function showQuestion(question) {
-  questionElement.innerText = question.question
-  question.answers.forEach(answer => {
-    const button = document.createElement('button')
-    button.innerText = answer.text
-    button.classList.add('btn')
-    if (answer.correct) {
-      button.dataset.correct = answer.correct
+// Function to create a question element
+function createQuestionElement(question, index) {
+  const questionElement = document.createElement("div");
+  questionElement.classList.add("question");
+  questionElement.innerHTML = `
+    <h3>Question ${index + 1}:</h3>
+    <p>${question.question}</p>
+    <ul>
+      ${question.options.map(option => `<li>${option}</li>`).join("")}
+   </ul>
+  `;
+  return questionElement;
+}
+
+// Function to validate user's answers and provide feedback
+function validateAnswers() {
+  const userAnswers = [];
+  const correctAnswers = [];
+  const questions = document.querySelectorAll(".question");
+  let score = 0;
+
+  questions.forEach((question, index) => {
+    const selectedOption = question.querySelector("li.selected");
+    if (selectedOption) {
+      userAnswers.push(selectedOption.textContent);
+      if (index < quizData.length) {
+        correctAnswers.push(quizData[index].correctAnswer);
+        if (selectedOption.textContent === quizData[index].correctAnswer) {
+          score++;
+          question.classList.add("correct");
+        } else {
+          question.classList.add("incorrect");
+        }
+      } else {
+        const quiz2Index = index - quizData.length;
+        correctAnswers.push(quizData2[quiz2Index].correctAnswer);
+        if (selectedOption.textContent === quizData2[quiz2Index].correctAnswer) {
+          score++;
+          question.classList.add("correct");
+        } else {
+          question.classList.add("incorrect");
+        }
+      }
+    } else {
+      userAnswers.push("");
+      if (index < quizData.length) {
+        correctAnswers.push(quizData[index].correctAnswer);
+      } else {
+        const quiz2Index = index - quizData.length;
+        correctAnswers.push(quizData2[quiz2Index].correctAnswer);
+      }
     }
-    button.addEventListener('click', selectAnswer)
-    answerButtonsElement.appendChild(button)
-  })
+  });
+
+  const feedback = `
+    <p>You got ${score} out of ${quizData.length + quizData2.length} questions correct!</p>
+    <ul>
+      ${userAnswers.map((answer, index) => {
+        if (answer === correctAnswers[index]) {
+          if (index < quizData.length) {
+            return `<li class="correct">${quizData[index].question} - ${correctAnswers[index]}</li>`;
+          } else {
+            const quiz2Index = index - quizData.length;
+            return `<li class="correct">${quizData2[quiz2Index].question} - ${correctAnswers[index]}</li>`;
+          }
+        } else {
+          if (index < quizData.length) {
+            return `<li class="incorrect">${quizData[index].question} - ${correctAnswers[index]}</li>`;
+          } else {
+            const quiz2Index = index - quizData.length;
+            return `<li class="incorrect">${quizData2[quiz2Index].question} - ${correctAnswers[index]}</li>`;
+          }
+        }
+      }).join("")}
+    </ul>
+  `;
+
+  quizFeedback.innerHTML = feedback;
 }
 
-function resetState() {
-  clearStatusClass(document.body)
-  nextButton.classList.add('hide')
-  while (answerButtonsElement.firstChild) {
-    answerButtonsElement.removeChild(answerButtonsElement.firstChild)
-  }
-}
+displayQuizQuestions();
+displayQuizQuestions2();
+submitButton.addEventListener("click", validateAnswers);
 
-function selectAnswer(e) {
-  const selectedButton = e.target
-  const correct = selectedButton.dataset.correct
-  setStatusClass(document.body, correct)
-  Array.from(answerButtonsElement.children).forEach(button => {
-    setStatusClass(button, button.dataset.correct)
-  })
-  if (shuffledQuestions.length > currentQuestionIndex + 1) {
-    nextButton.classList.remove('hide')
-  } else {
-    startButton.innerText = 'Restart'
-    startButton.classList.remove('hide')
-  }
-}
-
-function setStatusClass(element, correct) {
-  clearStatusClass(element)
-  if (correct) {
-    element.classList.add('correct')
-  } else {
-    element.classList.add('wrong')
-  }
-}
-
-function clearStatusClass(element) {
-  element.classList.remove('correct')
-  element.classList.remove('wrong')
-}
-
-const questions = [
+const answerOptions = document.querySelectorAll(".question li");
+answerOptions.forEach(option => {
+  option.addEventListener("click", () => {
+    if (option.classList.contains("selected")) {
+      option.classList.remove("selected");
+    } else {
+      const selectedOption = option.parentNode.querySelector(".selected");
+      if (selectedOption) {
+        selectedOption.classList.remove("selected");
+      }
+      option.classList.add("selected");
+    }
+  });
+});
+const quizData = [
     {
       question: "What is the capital of France?",
       options: ["Paris", "London", "Berlin", "Rome"],
@@ -153,3 +194,4 @@ const questions = [
     }
   
   ];
+
