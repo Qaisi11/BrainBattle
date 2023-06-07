@@ -1,70 +1,111 @@
-body {
-  background-image: url('https://images.unsplash.com/photo-1464078546784-4bfb496cfcef');
-  background-size: cover;
-  background-position: center;
-  font-family: "Arial", sans-serif;
-  color: white;
-  margin: 0;
-  padding: 0;
-}
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      background-image: url('https://images.unsplash.com/photo-1464078546784-4bfb496cfcef');
+      background-size: cover;
+      background-position: center;
+      font-family: "Arial", sans-serif;
+      color:white
+      margin: 0;
+      padding: 0;
+    }
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: rgba(255, 193, 208, 0.9);
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  text-align: center;
-}
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: rgba(255, 193, 208, 0.9);
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
 
-header {
-  background-color: rgba(0, 0, 0, 0.8);
-  padding: 20px;
-}
+    header {
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 20px;
+    }
 
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
 
-nav ul li {
-  display: inline-block;
-  margin-right: 10px;
-}
+    nav ul li {
+      display: inline-block;
+      margin-right: 10px;
+    }
 
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-}
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
 
-main {
-  padding: 20px;
-}
+    main {
+      padding: 20px;
+    }
 
-footer {
-  background-color: rgba(0, 0, 0, 0.8);
-  padding: 10px;
-  text-align: center;
-}
+    footer {
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 10px;
+      text-align: center;
+    }
 
-#dashboard {
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  margin: 20px;
-}
+    #dashboard {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      margin: 20px;
+    }
 
-#quizzes-container,
-#quiz-history-container {
-  margin-top: 20px;
-}
+    #quizzes-container,
+    #quiz-history-container {
+      margin-top: 20px;
+    }
 
-.quiz-item {
-  background-color: #fff;
-  border.
-}
+    .quiz-item {
+      background-color: #fff;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1>Welcome to the Website</h1>
+      <div id="dashboard">
+        <h2>Dashboard</h2>
+        <div id="quizzes-container">
+          <div class="quiz-item">
+            <h3>Quiz 1</h3>
+            <p>Description of Quiz 1</p>
+            <button>Start Quiz</button>
+          </div>
+          <div class="quiz-item">
+            <h3>Quiz 2</h3>
+            <p>Description of Quiz 2</p>
+            <button>Start Quiz</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p> &copy; 2023 My Website. All rights reserved. </p>
+    </footer>
+  </div>
+</body>
+</html>
