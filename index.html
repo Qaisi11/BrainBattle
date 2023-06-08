@@ -1,65 +1,150 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>BrainBattle</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Home</title>
 </head>
-<body>
-  <header>
-    <h1>BrainBattle</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="#" class="logo">Home</a>
+      <ul class="nav-links">
+        <li><a href="dashboard.html">Dashboard</a></li>
         <li><a href="quiz1.html">Quiz 1</a></li>
         <li><a href="quiz2.html">Quiz 2</a></li>
-        <li><a href="create.html">Create A Quiz For Yourself</a></li>
-        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="quiz3.html">Quiz 3</a></li>
+
       </ul>
-    </nav>
-  </header>
-  
-  <main>
-    <div class="container">
-      <h2>Welcome to the Quiz Platform</h2>
-      <p>Take quizzes to test your knowledge!</p>
     </div>
-  </main>
+    <div class="nav-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
 
-<div id="dashboard">
-  <h2>Dashboard</h2>
-  <div id="quizzes-container">
-    <!-- User's quizzes will be displayed here -->
-  </div>
-  <div id="quiz-history-container">
-    <!-- User's quiz history will be displayed here -->
-  </div>
-
-</div>
-
-  <!DOCTYPE html>
-<html>
-<head>
-  <title>Quiz App</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-<body>
-  <main>
-    <h2>Choose a Quiz</h2>
-    <ul>
-      <li><a href="quiz1.html">BrainBattle Multiple Question Quiz (level=MEDIUM)</a></li>
-    </ul>
-  </main>
   <script src="script.js"></script>
-</body>
-</html>
 
 
-  <footer>
-    <div class="container">
-      <p>&copy; 2023 BrainBattle. All rights reserved.</p>
-    </div>
-  </footer>
+
+
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      background-color: #333;
+      overflow: hidden;
+    }
+
+    nav ul li {
+      float: left;
+    }
+
+    nav ul li a {
+      display: block;
+      color: #fff;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    nav ul li a:hover {
+      background-color: #555;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    section {
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    form {
+      margin-top: 10px;
+    }
+
+    input,
+    textarea,
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+<body>
+  <header>
+    <h1>Welcome</h1>
+  </header>
+
   
-  <script src="quiz.js"></script>
+
+  <main>
+    <section>
+      <h2>About Us</h2>
+      <p>With a passion for programming and a knack for problem-solving, Ibrahim Qaisi is a highly skilled and dedicated coder. Equipped with a strong foundation in html, js and css languages and frameworks, they possess the expertise to develop innovative and efficient solutions.</p>
+      <p>As a coder, Ibahim Qaisi demonstrates a remarkable ability to analyze complex problems and devise elegant solutions. Their logical thinking and creativity enable them to tackle challenges with a fresh perspective, consistently delivering high-quality code.</p>
+    </section>
+
+    
+
+    <section>
+      <h2>Contact Me</h2>
+      <form id="contactForm">
+        <input type="text" name="name" placeholder="Your Name">
+        <input type="email" name="email" placeholder="Your Email">
+        <textarea name="message" placeholder="Your Message"></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
 </body>
-</html>
+  <footer>
+    <p>&copy; 2023 My Portfolio. All rights reserved.</p>
+  </footer>
+
+  <img src="https://c8.alamy.com/comp/2G4WCD8/ready-for-a-quiz-neon-sign-on-brick-wall-background-glowing-lettering-2G4WCD8.jpg" alt="Coder" width="400">
+  <img src="https://t3.ftcdn.net/jpg/03/12/44/34/360_F_312443477_5lxDV8QHzXyOwMH4FxLmU4Y93h12NZEJ.jpg" alt="Coder" width="400">
+  <img src="https://cdn.akamai.steamstatic.com/steam/apps/1126070/capsule_616x353.jpg?t=1574790305" alt="Coder" width="400">
+  </html>
+

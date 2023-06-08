@@ -1,34 +1,158 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Quiz Platform - Dashboard</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Dashboard</title>
 </head>
 <body>
-  <header>
-    <h1>Quiz Platform</h1>
-    <nav>
-      <ul>
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="#" class="logo">Dashboard</a>
+      <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="quiz1.html">Quiz 1</a></li>
         <li><a href="quiz2.html">Quiz 2</a></li>
-        <li><a href="create.html">Create A Quiz For Yourself</a></li>
-        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="quiz3.html">Quiz 3</a></li>
+
       </ul>
-    </nav>
-  </header>
-  
-  <main>
-    <h2>Dashboard</h2>
-    <div id="quiz-container"></div>
-    <div id="quiz-feedback"></div>
-    <button id="submit-button">Submit</button>
-  </main>
-  
-  <footer>
-    <p>&copy; 2023 Quiz Platform. All rights reserved.</p>
-  </footer>
-  
+    </div>
+    <div class="nav-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
   <script src="script.js"></script>
 </body>
+
+
+
+
+
+  
+
+
+
+      <style>
+          body {
+              font-family: Arial, sans-serif;
+              background-color: #f2f2f2;
+              margin: 0;
+              padding: 0;
+          }
+          
+          .container {
+              max-width: 600px;
+              margin: 0 auto;
+              padding: 20px;
+              background-color: #ffffff;
+              box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+              border-radius: 5px;
+          }
+          
+          h1 {
+              text-align: center;
+              color: #333333;
+          }
+          
+          .form-group {
+              margin-bottom: 20px;
+          }
+          
+          .form-group label {
+              display: block;
+              font-weight: bold;
+              color: #666666;
+          }
+          
+          .form-group input[type="text"],
+          .form-group textarea {
+              width: 100%;
+              padding: 10px;
+              border: 1px solid #dddddd;
+              border-radius: 5px;
+              font-size: 16px;
+          }
+          
+          .form-group textarea {
+              height: 150px;
+          }
+          
+          .form-group .submit-button {
+              display: block;
+              width: 100%;
+              padding: 10px;
+              border: none;
+              border-radius: 5px;
+              background-color: #4caf50;
+              color: #ffffff;
+              font-size: 16px;
+              cursor: pointer;
+          }
+          
+          .form-group .submit-button:hover {
+              background-color: #45a049;
+          }
+      </style>
+
+
+      <div class="container">
+          <h1>Feedback Form</h1>
+          <form id="feedback-form">
+              <div class="form-group">
+                  <label for="name">Name:</label>
+                  <input type="text" id="name" name="name" required>
+              </div>
+              
+              <div class="form-group">
+                  <label for="email">Email:</label>
+                  <input type="text" id="email" name="email" required>
+              </div>
+              
+              <div class="form-group">
+                  <label for="message">Message:</label>
+                  <textarea id="message" name="message" required></textarea>
+              </div>
+              
+              <div class="form-group">
+                  <input type="submit" class="submit-button" value="Submit">
+              </div>
+          </form>
+      </div>
+  
+      <script>
+          // JavaScript code for form submission
+          document.getElementById("feedback-form").addEventListener("submit", function(event) {
+              event.preventDefault();
+              
+              // Fetch form data
+              var name = document.getElementById("name").value;
+              var email = document.getElementById("email").value;
+              var message = document.getElementById("message").value;
+              
+              // Here you can perform further processing, like sending the data to a server
+              
+              // Clear the form fields
+              document.getElementById("name").value = "";
+              document.getElementById("email").value = "";
+              document.getElementById("message").value = "";
+              
+              // Display a success message
+              alert("Thank you for your feedback!");
+          });
+      </script>
 </html>
+
+
+  
+
+
+
+
+
+
+
+
